@@ -109,12 +109,30 @@ class LinkedList {
         if (index < 0 || index > this.length) return undefined
         if (index === 0) return this.shift()
         if (index === this.length-1) return this.pop()
+
         const before = get(index-1)
         const temp = get(index)
+
         before.next = temp.next
         temp.next = null
         this.length--
         return temp
+    }
+
+    reverse(){
+        const temp = this.head
+        this.head = this.tail
+        this.tail = temp
+        const next = temp.next
+        const prev = null
+
+        for(let i = 0; i < this.length; i++){
+            next = temp.next
+            temp.next = prev
+            prev = temp
+            temp = next
+        }
+        return this
     }
 }
 

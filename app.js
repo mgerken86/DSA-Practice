@@ -94,15 +94,27 @@ class LinkedList {
     }
 
     insert(index, value) {
+        if (index < 0 || index > this.length) return false
         if (index === 0) return this.unshift(value)
         if (index === this.length) return this.push(value)
-        if (index < 0 || index > this.length) return false
         const newNode = new Node(value)
         const temp = this.get(index - 1)
         newNode.next = temp.next
         temp.next = newNode
         this.length++
         return true
+    }
+
+    remove(index){
+        if (index < 0 || index > this.length) return undefined
+        if (index === 0) return this.shift()
+        if (index === this.length-1) return this.pop()
+        const before = get(index-1)
+        const temp = get(index)
+        before.next = temp.next
+        temp.next = null
+        this.length--
+        return temp
     }
 }
 

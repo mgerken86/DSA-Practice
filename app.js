@@ -47,9 +47,9 @@ class LinkedList {
         return temp
     }
 
-    unshift(value){
+    unshift(value) {
         const newNode = new Node(value)
-        if (!this.head){
+        if (!this.head) {
             this.head = newNode
             this.tail = newNode
         } else {
@@ -58,6 +58,18 @@ class LinkedList {
         }
         this.length++
         return this
+    }
+
+    shift() {
+        if (!this.head) return undefined
+        let temp = this.head
+        this.head = this.head.next
+        this.length--
+        if (this.length === 0) {
+            this.tail = null
+        }
+        temp.next = null
+        return temp
     }
 
 

@@ -83,9 +83,19 @@ class LinkedList {
         return temp
     }
 
+    set(index, value){
+        const newNode = new Node(value)
+        const temp = this.get(index)
+        if (temp){
+            temp.value = value
+            return true
+        }
+        return false
+    }
+
 
 }
 
-let myLinkedList = new LinkedList(4)
-myLinkedList.push(7)
-console.log(myLinkedList)
+// let myLinkedList = new LinkedList(4)
+// myLinkedList.push(7)
+// console.log(myLinkedList)

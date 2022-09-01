@@ -15,6 +15,20 @@ class LinkedList {
         this.tail = newNode
         this.length = 1
     }
+
+    push(value){
+        const newNode = new Node(value)
+        if (!this.head){
+            this.head = newNode
+            this.tail = newNode
+        }
+        this.tail.next = newNode
+        this.tail = newNode
+        this.length += 1
+    }
+
 }
 
 let myLinkedList = new LinkedList(4 )
+myLinkedList.push(7)
+console.log(myLinkedList)

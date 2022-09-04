@@ -169,7 +169,20 @@ class DoubleLinkedList {
         }
         this.length++
         return this
+    }
 
+    pop(){
+        if (!this.head) return undefined
+        const temp = this.tail
+        this.tail = temp.prev
+        this.tail.next = null
+        temp.prev = null
+        this.length--
+        if (this.length === 0){
+            this.head = this.tail
+            this.head.prev = null
+        }
+        return temp
     }
 }
 

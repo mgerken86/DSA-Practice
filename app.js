@@ -105,12 +105,12 @@ class LinkedList {
         return true
     }
 
-    remove(index){
+    remove(index) {
         if (index < 0 || index > this.length) return undefined
         if (index === 0) return this.shift()
-        if (index === this.length-1) return this.pop()
+        if (index === this.length - 1) return this.pop()
 
-        const before = get(index-1)
+        const before = get(index - 1)
         const temp = get(index)
 
         before.next = temp.next
@@ -119,14 +119,14 @@ class LinkedList {
         return temp
     }
 
-    reverse(){
+    reverse() {
         const temp = this.head
         this.head = this.tail
         this.tail = temp
         const next = temp.next
         const prev = null
 
-        for(let i = 0; i < this.length; i++){
+        for (let i = 0; i < this.length; i++) {
             next = temp.next
             temp.next = prev
             prev = temp
@@ -140,3 +140,22 @@ class LinkedList {
 // let myLinkedList = new LinkedList(4)
 // myLinkedList.push(7)
 // console.log(myLinkedList)
+
+
+class DLLNode extends Node {
+    constructor(value) {
+        super(value)
+        this.previous = null
+    }
+}
+
+class DoubleLinkedList {
+    constructor(value) {
+        const newNode = new DLLNode(value)
+        this.head = newNode
+        this.tail = this.head
+        this.length = 1
+    }
+}
+
+console.log

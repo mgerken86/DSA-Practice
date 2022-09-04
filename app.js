@@ -157,9 +157,9 @@ class DoubleLinkedList {
         this.length = 1
     }
 
-    push(value){
+    push(value) {
         const newNode = new DLLNode(value)
-        if (!this.head){
+        if (!this.head) {
             this.head = newNode
             this.tail = newNode
         } else {
@@ -171,17 +171,18 @@ class DoubleLinkedList {
         return this
     }
 
-    pop(){
+    pop() {
         if (!this.head) return undefined
         const temp = this.tail
-        this.tail = temp.prev
-        this.tail.next = null
-        temp.prev = null
-        this.length--
-        if (this.length === 0){
+        if (this.length === 1) {
             this.head = this.tail
             this.head.prev = null
+        } else {
+            this.tail = temp.prev
+            this.tail.next = null
+            temp.prev = null
         }
+        this.length--
         return temp
     }
 }

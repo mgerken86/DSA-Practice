@@ -175,7 +175,7 @@ class DoubleLinkedList {
         if (!this.head) return undefined
         const temp = this.tail
         if (this.length === 1) {
-            this.head = this.tail
+            this.head = null
             this.head.prev = null
         } else {
             this.tail = temp.prev
@@ -185,6 +185,8 @@ class DoubleLinkedList {
         this.length--
         return temp
     }
+
+
 }
 
 // console.log(new DoubleLinkedList(7))

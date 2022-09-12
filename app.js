@@ -186,7 +186,17 @@ class DoubleLinkedList {
         return temp
     }
 
-
+    shift(value) {
+        const newNode = DLLNode(value)
+        if (!this.head) {
+            this.push(value)
+        } else {
+            this.head.prev = newNode
+            this.head = newNode
+        }
+        this.length++
+        return this
+    }
 }
 
 // console.log(new DoubleLinkedList(7))

@@ -187,7 +187,7 @@ class DoubleLinkedList {
     }
 
     unShift(value) {
-        const newNode = DLLNode(value)
+        const newNode = new DLLNode(value)
         if (!this.head) {
             this.head = newNode
             this.tail = newNode
@@ -238,6 +238,22 @@ class DoubleLinkedList {
             return true
         }
         return false
+    }
+
+    insert(index, value) {
+        if (index < 0 || index > this.length) return false
+        if (index === this.length) return this.push(value)
+        if (index === 0) return this.unShift(value)
+
+        const newNode = new DLLNode(value)
+        const before = this.get(index - 1)
+        const after = before.next
+        before.next = newNode
+        newNode.prev = before
+        newNode.next = after
+        after.prev = newNode
+        this.length++
+        return true
     }
 }
 

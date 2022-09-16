@@ -274,3 +274,13 @@ class DoubleLinkedList {
 }
 
 // console.log(new DoubleLinkedList(7))
+
+
+class Stack {
+    constructor(value){
+        const newNode = new Node(value)
+        this.top = newNode
+        this.length = 1
+    }
+
+}
